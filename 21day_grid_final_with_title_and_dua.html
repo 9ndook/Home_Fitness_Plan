@@ -1,259 +1,0 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>خطة 21 يوم لفتح الرزق</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f2f4f8; margin: 0; padding: 0; direction: rtl; }
-    header { background: linear-gradient(to left, #0f2027, #203a43, #2c5364); color: white; padding: 30px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 26px; }
-    .container { padding: 20px; max-width: 1000px; margin: auto; }
-    .intro {
-      background: white; padding: 20px; border-radius: 10px;
-      margin-bottom: 20px; line-height: 1.8;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-    }
-    .day-card {
-      background: white;
-      border: 2px solid #2980b9;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    .day-card.completed {
-      background-color: #d4edda;
-      border-color: #27ae60;
-      color: #155724;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-    }
-    .modal-content h2 {
-      margin-top: 0;
-      color: #2980b9;
-    }
-    .task { margin: 10px 0; font-size: 16px; }
-    .task input { transform: scale(1.2); margin-left: 10px; }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #888;
-    }
-    .reset-btn {
-      background-color: #c0392b; color: white;
-      border: none; padding: 10px 20px;
-      border-radius: 8px; font-size: 16px;
-      cursor: pointer; margin-bottom: 20px;
-      display: block; margin-right: auto; margin-left: auto;
-    }
-    footer {
-      text-align: center; padding: 20px; font-size: 15px;
-      color: #444; background-color: #fff;
-      border-top: 1px solid #ddd; margin-top: 40px;
-    }
-    .whatsapp {
-      margin-top: 15px;
-    }
-    .whatsapp a {
-      background: #25D366; color: white;
-      padding: 12px 20px; border-radius: 8px;
-      text-decoration: none; display: inline-block;
-    }
-  </style>
-</head>
-<body>
-<header>
-  <h1>🌿 21 يوم من النية... إلى البركة</h1>
-  <p>تفاعل يومي لبناء عادة البركة والنية الطيبة</p>
-</header>
-<div class="container">
-  <div class="intro">
-    <h3>لماذا 21 يوم؟</h3>
-    <p>تشير الدراسات إلى أن العقل يحتاج 21 يومًا لتكوين عادة. وفي الروحانيات، تعتبر هذه المدة كافية لزرع نية جديدة وتحرير الطاقات السلبية وتفعيل البركات في حياتك.</p>
-    <h3 style="margin-top:20px;">تفصيل المهام اليومية:</h3>
-    <ul>
-      <li><strong>أذكار الصباح + نية اليوم:</strong> "اللهم اجعل يومي هذا بركة وخيرًا وتوفيقًا."</li>
-      <li><strong>الاستغفار 100 مرة:</strong> "أستغفر الله وأتوب إليه" بتأمل وخشوع.</li>
-      <li><strong>قراءة جزء من سورة البقرة:</strong> جزّئها على 3 أيام وكررها كل 3.</li>
-      <li><strong>جلسة الرقية الشرعية:</strong> الفاتحة، آية الكرسي، خواتيم البقرة، الإخلاص، الفلق، الناس، آيات السحر.</li>
-      <li><strong>أذكار المساء:</strong> مثل الصباح وتُقرأ قبل الغروب.</li>
-      <li><strong>صدقة يومية بسيطة:</strong> حتى بريال.</li>
-      <li><strong>دعاء الرزق:</strong> "اللهم إن كان رزقي في السماء فأنزله..."</li>
-      <li><strong>تحصين قبل النوم:</strong> المعوذات + كتابة شعور سلبي وتمزيق الورقة.</li>
-    </ul>
-  </div>
-
-  <button class="reset-btn" onclick="resetProgress()">🔄 ابدأ من جديد</button>
-
-  <div class="grid">
-<div class="day-card" id="card1" onclick="openDay(1)">اليوم 1</div><div class="day-card" id="card2" onclick="openDay(2)">اليوم 2</div><div class="day-card" id="card3" onclick="openDay(3)">اليوم 3</div><div class="day-card" id="card4" onclick="openDay(4)">اليوم 4</div><div class="day-card" id="card5" onclick="openDay(5)">اليوم 5</div><div class="day-card" id="card6" onclick="openDay(6)">اليوم 6</div><div class="day-card" id="card7" onclick="openDay(7)">اليوم 7</div><div class="day-card" id="card8" onclick="openDay(8)">اليوم 8</div><div class="day-card" id="card9" onclick="openDay(9)">اليوم 9</div><div class="day-card" id="card10" onclick="openDay(10)">اليوم 10</div><div class="day-card" id="card11" onclick="openDay(11)">اليوم 11</div><div class="day-card" id="card12" onclick="openDay(12)">اليوم 12</div><div class="day-card" id="card13" onclick="openDay(13)">اليوم 13</div><div class="day-card" id="card14" onclick="openDay(14)">اليوم 14</div><div class="day-card" id="card15" onclick="openDay(15)">اليوم 15</div><div class="day-card" id="card16" onclick="openDay(16)">اليوم 16</div><div class="day-card" id="card17" onclick="openDay(17)">اليوم 17</div><div class="day-card" id="card18" onclick="openDay(18)">اليوم 18</div><div class="day-card" id="card19" onclick="openDay(19)">اليوم 19</div><div class="day-card" id="card20" onclick="openDay(20)">اليوم 20</div><div class="day-card" id="card21" onclick="openDay(21)">اليوم 21</div></div>
-  <div class="modal" id="modal1">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(1)">&times;</button>
-      <h2>مهام اليوم 1</h2><div class="task"><input type="checkbox" id="d1-t1" onchange="checkCompletion(1)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d1-t2" onchange="checkCompletion(1)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d1-t3" onchange="checkCompletion(1)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d1-t4" onchange="checkCompletion(1)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d1-t5" onchange="checkCompletion(1)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d1-t6" onchange="checkCompletion(1)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d1-t7" onchange="checkCompletion(1)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d1-t8" onchange="checkCompletion(1)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message1">🎯 أنهيت مهام اليوم 1 بنجاح!</div></div></div>
-  <div class="modal" id="modal2">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(2)">&times;</button>
-      <h2>مهام اليوم 2</h2><div class="task"><input type="checkbox" id="d2-t1" onchange="checkCompletion(2)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d2-t2" onchange="checkCompletion(2)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d2-t3" onchange="checkCompletion(2)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d2-t4" onchange="checkCompletion(2)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d2-t5" onchange="checkCompletion(2)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d2-t6" onchange="checkCompletion(2)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d2-t7" onchange="checkCompletion(2)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d2-t8" onchange="checkCompletion(2)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message2">🎯 أنهيت مهام اليوم 2 بنجاح!</div></div></div>
-  <div class="modal" id="modal3">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(3)">&times;</button>
-      <h2>مهام اليوم 3</h2><div class="task"><input type="checkbox" id="d3-t1" onchange="checkCompletion(3)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d3-t2" onchange="checkCompletion(3)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d3-t3" onchange="checkCompletion(3)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d3-t4" onchange="checkCompletion(3)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d3-t5" onchange="checkCompletion(3)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d3-t6" onchange="checkCompletion(3)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d3-t7" onchange="checkCompletion(3)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d3-t8" onchange="checkCompletion(3)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message3">🎯 أنهيت مهام اليوم 3 بنجاح!</div></div></div>
-  <div class="modal" id="modal4">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(4)">&times;</button>
-      <h2>مهام اليوم 4</h2><div class="task"><input type="checkbox" id="d4-t1" onchange="checkCompletion(4)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d4-t2" onchange="checkCompletion(4)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d4-t3" onchange="checkCompletion(4)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d4-t4" onchange="checkCompletion(4)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d4-t5" onchange="checkCompletion(4)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d4-t6" onchange="checkCompletion(4)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d4-t7" onchange="checkCompletion(4)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d4-t8" onchange="checkCompletion(4)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message4">🎯 أنهيت مهام اليوم 4 بنجاح!</div></div></div>
-  <div class="modal" id="modal5">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(5)">&times;</button>
-      <h2>مهام اليوم 5</h2><div class="task"><input type="checkbox" id="d5-t1" onchange="checkCompletion(5)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d5-t2" onchange="checkCompletion(5)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d5-t3" onchange="checkCompletion(5)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d5-t4" onchange="checkCompletion(5)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d5-t5" onchange="checkCompletion(5)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d5-t6" onchange="checkCompletion(5)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d5-t7" onchange="checkCompletion(5)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d5-t8" onchange="checkCompletion(5)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message5">🎯 أنهيت مهام اليوم 5 بنجاح!</div></div></div>
-  <div class="modal" id="modal6">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(6)">&times;</button>
-      <h2>مهام اليوم 6</h2><div class="task"><input type="checkbox" id="d6-t1" onchange="checkCompletion(6)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d6-t2" onchange="checkCompletion(6)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d6-t3" onchange="checkCompletion(6)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d6-t4" onchange="checkCompletion(6)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d6-t5" onchange="checkCompletion(6)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d6-t6" onchange="checkCompletion(6)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d6-t7" onchange="checkCompletion(6)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d6-t8" onchange="checkCompletion(6)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message6">🎯 أنهيت مهام اليوم 6 بنجاح!</div></div></div>
-  <div class="modal" id="modal7">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(7)">&times;</button>
-      <h2>مهام اليوم 7</h2><div class="task"><input type="checkbox" id="d7-t1" onchange="checkCompletion(7)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d7-t2" onchange="checkCompletion(7)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d7-t3" onchange="checkCompletion(7)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d7-t4" onchange="checkCompletion(7)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d7-t5" onchange="checkCompletion(7)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d7-t6" onchange="checkCompletion(7)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d7-t7" onchange="checkCompletion(7)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d7-t8" onchange="checkCompletion(7)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message7">🎯 أنهيت مهام اليوم 7 بنجاح!</div></div></div>
-  <div class="modal" id="modal8">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(8)">&times;</button>
-      <h2>مهام اليوم 8</h2><div class="task"><input type="checkbox" id="d8-t1" onchange="checkCompletion(8)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d8-t2" onchange="checkCompletion(8)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d8-t3" onchange="checkCompletion(8)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d8-t4" onchange="checkCompletion(8)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d8-t5" onchange="checkCompletion(8)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d8-t6" onchange="checkCompletion(8)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d8-t7" onchange="checkCompletion(8)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d8-t8" onchange="checkCompletion(8)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message8">🎯 أنهيت مهام اليوم 8 بنجاح!</div></div></div>
-  <div class="modal" id="modal9">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(9)">&times;</button>
-      <h2>مهام اليوم 9</h2><div class="task"><input type="checkbox" id="d9-t1" onchange="checkCompletion(9)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d9-t2" onchange="checkCompletion(9)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d9-t3" onchange="checkCompletion(9)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d9-t4" onchange="checkCompletion(9)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d9-t5" onchange="checkCompletion(9)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d9-t6" onchange="checkCompletion(9)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d9-t7" onchange="checkCompletion(9)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d9-t8" onchange="checkCompletion(9)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message9">🎯 أنهيت مهام اليوم 9 بنجاح!</div></div></div>
-  <div class="modal" id="modal10">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(10)">&times;</button>
-      <h2>مهام اليوم 10</h2><div class="task"><input type="checkbox" id="d10-t1" onchange="checkCompletion(10)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d10-t2" onchange="checkCompletion(10)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d10-t3" onchange="checkCompletion(10)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d10-t4" onchange="checkCompletion(10)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d10-t5" onchange="checkCompletion(10)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d10-t6" onchange="checkCompletion(10)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d10-t7" onchange="checkCompletion(10)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d10-t8" onchange="checkCompletion(10)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message10">🎯 أنهيت مهام اليوم 10 بنجاح!</div></div></div>
-  <div class="modal" id="modal11">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(11)">&times;</button>
-      <h2>مهام اليوم 11</h2><div class="task"><input type="checkbox" id="d11-t1" onchange="checkCompletion(11)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d11-t2" onchange="checkCompletion(11)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d11-t3" onchange="checkCompletion(11)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d11-t4" onchange="checkCompletion(11)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d11-t5" onchange="checkCompletion(11)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d11-t6" onchange="checkCompletion(11)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d11-t7" onchange="checkCompletion(11)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d11-t8" onchange="checkCompletion(11)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message11">🎯 أنهيت مهام اليوم 11 بنجاح!</div></div></div>
-  <div class="modal" id="modal12">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(12)">&times;</button>
-      <h2>مهام اليوم 12</h2><div class="task"><input type="checkbox" id="d12-t1" onchange="checkCompletion(12)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d12-t2" onchange="checkCompletion(12)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d12-t3" onchange="checkCompletion(12)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d12-t4" onchange="checkCompletion(12)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d12-t5" onchange="checkCompletion(12)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d12-t6" onchange="checkCompletion(12)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d12-t7" onchange="checkCompletion(12)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d12-t8" onchange="checkCompletion(12)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message12">🎯 أنهيت مهام اليوم 12 بنجاح!</div></div></div>
-  <div class="modal" id="modal13">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(13)">&times;</button>
-      <h2>مهام اليوم 13</h2><div class="task"><input type="checkbox" id="d13-t1" onchange="checkCompletion(13)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d13-t2" onchange="checkCompletion(13)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d13-t3" onchange="checkCompletion(13)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d13-t4" onchange="checkCompletion(13)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d13-t5" onchange="checkCompletion(13)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d13-t6" onchange="checkCompletion(13)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d13-t7" onchange="checkCompletion(13)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d13-t8" onchange="checkCompletion(13)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message13">🎯 أنهيت مهام اليوم 13 بنجاح!</div></div></div>
-  <div class="modal" id="modal14">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(14)">&times;</button>
-      <h2>مهام اليوم 14</h2><div class="task"><input type="checkbox" id="d14-t1" onchange="checkCompletion(14)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d14-t2" onchange="checkCompletion(14)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d14-t3" onchange="checkCompletion(14)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d14-t4" onchange="checkCompletion(14)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d14-t5" onchange="checkCompletion(14)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d14-t6" onchange="checkCompletion(14)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d14-t7" onchange="checkCompletion(14)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d14-t8" onchange="checkCompletion(14)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message14">🎯 أنهيت مهام اليوم 14 بنجاح!</div></div></div>
-  <div class="modal" id="modal15">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(15)">&times;</button>
-      <h2>مهام اليوم 15</h2><div class="task"><input type="checkbox" id="d15-t1" onchange="checkCompletion(15)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d15-t2" onchange="checkCompletion(15)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d15-t3" onchange="checkCompletion(15)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d15-t4" onchange="checkCompletion(15)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d15-t5" onchange="checkCompletion(15)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d15-t6" onchange="checkCompletion(15)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d15-t7" onchange="checkCompletion(15)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d15-t8" onchange="checkCompletion(15)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message15">🎯 أنهيت مهام اليوم 15 بنجاح!</div></div></div>
-  <div class="modal" id="modal16">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(16)">&times;</button>
-      <h2>مهام اليوم 16</h2><div class="task"><input type="checkbox" id="d16-t1" onchange="checkCompletion(16)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d16-t2" onchange="checkCompletion(16)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d16-t3" onchange="checkCompletion(16)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d16-t4" onchange="checkCompletion(16)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d16-t5" onchange="checkCompletion(16)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d16-t6" onchange="checkCompletion(16)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d16-t7" onchange="checkCompletion(16)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d16-t8" onchange="checkCompletion(16)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message16">🎯 أنهيت مهام اليوم 16 بنجاح!</div></div></div>
-  <div class="modal" id="modal17">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(17)">&times;</button>
-      <h2>مهام اليوم 17</h2><div class="task"><input type="checkbox" id="d17-t1" onchange="checkCompletion(17)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d17-t2" onchange="checkCompletion(17)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d17-t3" onchange="checkCompletion(17)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d17-t4" onchange="checkCompletion(17)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d17-t5" onchange="checkCompletion(17)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d17-t6" onchange="checkCompletion(17)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d17-t7" onchange="checkCompletion(17)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d17-t8" onchange="checkCompletion(17)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message17">🎯 أنهيت مهام اليوم 17 بنجاح!</div></div></div>
-  <div class="modal" id="modal18">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(18)">&times;</button>
-      <h2>مهام اليوم 18</h2><div class="task"><input type="checkbox" id="d18-t1" onchange="checkCompletion(18)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d18-t2" onchange="checkCompletion(18)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d18-t3" onchange="checkCompletion(18)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d18-t4" onchange="checkCompletion(18)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d18-t5" onchange="checkCompletion(18)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d18-t6" onchange="checkCompletion(18)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d18-t7" onchange="checkCompletion(18)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d18-t8" onchange="checkCompletion(18)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message18">🎯 أنهيت مهام اليوم 18 بنجاح!</div></div></div>
-  <div class="modal" id="modal19">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(19)">&times;</button>
-      <h2>مهام اليوم 19</h2><div class="task"><input type="checkbox" id="d19-t1" onchange="checkCompletion(19)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d19-t2" onchange="checkCompletion(19)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d19-t3" onchange="checkCompletion(19)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d19-t4" onchange="checkCompletion(19)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d19-t5" onchange="checkCompletion(19)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d19-t6" onchange="checkCompletion(19)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d19-t7" onchange="checkCompletion(19)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d19-t8" onchange="checkCompletion(19)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message19">🎯 أنهيت مهام اليوم 19 بنجاح!</div></div></div>
-  <div class="modal" id="modal20">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(20)">&times;</button>
-      <h2>مهام اليوم 20</h2><div class="task"><input type="checkbox" id="d20-t1" onchange="checkCompletion(20)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d20-t2" onchange="checkCompletion(20)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d20-t3" onchange="checkCompletion(20)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d20-t4" onchange="checkCompletion(20)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d20-t5" onchange="checkCompletion(20)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d20-t6" onchange="checkCompletion(20)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d20-t7" onchange="checkCompletion(20)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d20-t8" onchange="checkCompletion(20)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message20">🎯 أنهيت مهام اليوم 20 بنجاح!</div></div></div>
-  <div class="modal" id="modal21">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeModal(21)">&times;</button>
-      <h2>مهام اليوم 21</h2><div class="task"><input type="checkbox" id="d21-t1" onchange="checkCompletion(21)"> أذكار الصباح + نية اليوم</div><div class="task"><input type="checkbox" id="d21-t2" onchange="checkCompletion(21)"> الاستغفار 100 مرة</div><div class="task"><input type="checkbox" id="d21-t3" onchange="checkCompletion(21)"> قراءة جزء من سورة البقرة</div><div class="task"><input type="checkbox" id="d21-t4" onchange="checkCompletion(21)"> جلسة الرقية الشرعية</div><div class="task"><input type="checkbox" id="d21-t5" onchange="checkCompletion(21)"> أذكار المساء</div><div class="task"><input type="checkbox" id="d21-t6" onchange="checkCompletion(21)"> صدقة يومية بسيطة</div><div class="task"><input type="checkbox" id="d21-t7" onchange="checkCompletion(21)"> دعاء الرزق</div><div class="task"><input type="checkbox" id="d21-t8" onchange="checkCompletion(21)"> تحصين قبل النوم + تفريغ طاقة سلبية</div><div class="message" id="message21">🎯 أنهيت مهام اليوم 21 بنجاح!</div></div></div>
-  <footer>
-    تصميم وتطوير – إبراهيم الزامل<br><strong>لا تنسوني من صالح دعائكم</strong>
-    <div class="whatsapp">
-      <a href="https://wa.me/966546474708" target="_blank">تواصل عبر واتساب</a>
-    </div>
-  </footer>
-</div>
-
-<script>
-  function openDay(day) {
-    document.getElementById("modal" + day).style.display = "flex";
-  }
-  function closeModal(day) {
-    document.getElementById("modal" + day).style.display = "none";
-  }
-
-  function resetProgress() {
-    if (confirm("هل أنت متأكد أنك تريد البدء من جديد؟")) {
-      for (let day = 1; day <= 21; day++) {
-        for (let t = 1; t <= 8; t++) {
-          const id = `d${day}-t${t}`;
-          localStorage.removeItem(id);
-          const cb = document.getElementById(id);
-          if (cb) cb.checked = false;
-        }
-        document.getElementById("message" + day).style.display = "none";
-        document.getElementById("card" + day).classList.remove("completed");
-      }
-    }
-  }
-
-  function checkCompletion(day) {
-    const checkboxes = document.querySelectorAll(`#modal${day} input[type='checkbox']`);
-    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-    const msg = document.getElementById(`message${day}`);
-    const card = document.getElementById(`card${day}`);
-    checkboxes.forEach(cb => localStorage.setItem(cb.id, cb.checked));
-    if (allChecked) {
-      msg.style.display = "block";
-      card.classList.add("completed");
-    } else {
-      msg.style.display = "none";
-      card.classList.remove("completed");
-    }
-  }
-
-  window.onload = function() {
-    for (let day = 1; day <= 21; day++) {
-      for (let t = 1; t <= 8; t++) {
-        const id = `d${day}-t${t}`;
-        const cb = document.getElementById(id);
-        if (localStorage.getItem(id) === "true") cb.checked = true;
-      }
-      checkCompletion(day);
-    }
-  };
-</script>
-</body></html>
